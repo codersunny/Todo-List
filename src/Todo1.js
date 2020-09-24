@@ -13,6 +13,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import da_ta from "./firebase";
+import {} from "@material-ui/icons";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -71,7 +72,7 @@ function Todo1(props) {
     <List>
       <ListItemAvatar>
         <ListItemText
-          primary={props.Todo.Todo}
+          primary={props.Todo_obj.Todo}
           secondary="Add to list successful. Happy Coding!"
         ></ListItemText>
       </ListItemAvatar>
@@ -94,13 +95,16 @@ function Todo1(props) {
           <form>
             <p id="aria-describedly">
               <FormControl>
-                <InputLabel>{props.Todo.Todo}</InputLabel>
+                <InputLabel>{props.Todo_obj.Todo}</InputLabel>
                 <Input
+                  autoFocus
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                 ></Input>
               </FormControl>
-              <Button onClick={updateTodo}>Update todo</Button>
+              <Button type="submit" onClick={updateTodo}>
+                Update todo
+              </Button>
             </p>
           </form>
         </div>
@@ -111,7 +115,7 @@ function Todo1(props) {
         color="secondary"
         startIcon={<DeleteSharpIcon />}
         onClick={(event) =>
-          da_ta.collection("my_todo").doc(props.Todo.id).delete()
+          da_ta.collection("my_todo").doc(props.Todo_obj.id).delete()
         }
       >
         Delete

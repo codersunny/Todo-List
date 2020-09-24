@@ -45,7 +45,11 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to TODO CURD</h1>
-      <form action="">
+      <p>
+        Github:{" "}
+        <a href="https://github.com/codersunny/Todo-List">Click Here!</a>
+      </p>
+      <form>
         <FormControl>
           <InputLabel> Type something....</InputLabel>
           <Input
@@ -54,7 +58,7 @@ function App() {
           ></Input>
         </FormControl>
         <Button
-          disabled  ={!input}
+          disabled={!input}
           type="submit"
           variant="contained"
           color="secondary"
@@ -65,7 +69,7 @@ function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <Todo1 Todo={todo} />
+          <Todo1 Todo_obj={todo} />
         ))}
       </ul>
     </div>
